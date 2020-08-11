@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+GET     /recommendation             controllers.RecommendationAnalysisAPI.get(startDate:String, endDate: String, globalSearch: Option[String], sortParam: Option[String], descending: Option[Boolean])
+GET     /recommendation/:id/accuracyAnalyses controllers.RecommendationAnalysisAPI.getAccuracyAnalyses(id: Long)
+
+GET     /recommendationengine       controllers.RecommendationEngineAPI.get
+
+
+GET     /recommendationAnalysisEngine controllers.RecommendationAnalysisEngineAPI.get(startDate:String, endDate: String, globalSearch: Option[String], sortParam: Option[String], descending: Option[Boolean])
+
+
+
+
+
+
